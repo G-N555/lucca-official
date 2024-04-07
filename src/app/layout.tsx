@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             )}
           </div>
           <object
-            className="absolute opacity-40 z-0 w-screen h-screen"
+            className="absolute opacity-40 z-0 w-screen h-80h"
             type="image/svg+xml"
             data="/lucca.svg"
           />

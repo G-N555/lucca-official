@@ -76,6 +76,17 @@ const config = {
       fontFamily: {
         robot: ['var(--font-sans)', ...fontFamily.sans],
       },
+      height: {
+        '10h': '10vh',
+        '20h': '20vh',
+        '30h': '30vh',
+        '40h': '40vh',
+        '50h': '50vh',
+        '60h': '60vh',
+        '70h': '70vh',
+        '80h': '80vh',
+        '90h': '90vh',
+      },
     },
   },
   plugins: [
