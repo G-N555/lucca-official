@@ -1,6 +1,6 @@
 'use client';
 
-import type { Metadata } from 'next';
+import { usePathname } from 'next/navigation';
 import { Roboto } from 'next/font/google';
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
@@ -17,6 +17,7 @@ const font = Roboto({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isShowContents, setIsShowContents] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             className={cn('flex flex-col items-center max-w-lg w-full pt-8 z-10', font.variable)}
           >
             <Navigation />
-            {isShowContents && (
+            {pathname !== '/' && isShowContents && (
               <div className="w-full bg-slate-200 dark:bg-gray-800 lime:bg-indigo-400 flex-1 p-4 fade-in-animation">
                 {children}
               </div>
