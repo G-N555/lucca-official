@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             <Navigation />
             {pathname !== '/' && isShowContents && (
-              <div className="w-full bg-slate-200 dark:bg-gray-800 lime:bg-indigo-400 flex-1 p-4 fade-in-animation">
+              <div className="w-full bg-slate-200 dark:bg-gray-800 lime:bg-indigo-400 deepblue:bg-blue-950 flex-1 p-4 fade-in-animation">
                 {children}
               </div>
             )}
