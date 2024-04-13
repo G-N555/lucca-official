@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ThemeSwitcher } from './ThemeSwitcher';
 
 const navs = [
   {
