@@ -1,5 +1,6 @@
 import { useClient } from '@/hooks/getContents';
 import parse from 'html-react-parser';
+import { SectionTitle } from '../ui/SectionTitle';
 
 type video = {
   id: string;
@@ -44,8 +45,8 @@ export const VideoSection = async () => {
   const { videos } = data;
 
   return (
-    <div className="flex gap-4 flex-col">
-      {/* <h1 className="text-lg">Music Video</h1> */}
+    <div className="flex gap-4 flex-col px-4">
+      <SectionTitle title="Music Video" />
       <div className="flex justify-center flex-col gap-4 ">
         {videos.map((video) => (
           <VideoField key={video.id} {...video} />

@@ -1,5 +1,6 @@
 import { useClient } from '@/hooks/getContents';
 import parse from 'html-react-parser';
+import { SectionTitle } from '../ui/SectionTitle';
 
 type DiscoGraphy = {
   id: string;
@@ -45,7 +46,8 @@ export const DiscoSection = async () => {
   const { discographies } = data;
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center flex-col gap-4 px-4">
+      <SectionTitle title="Discography" />
       {discographies.map((discography) => (
         <DiscoGraphyField key={discography.id} {...discography} />
       ))}

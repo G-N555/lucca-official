@@ -73,7 +73,7 @@ const MemberField = ({ member }: MemberFieldProps) => {
             })}
           </div>
         )}
-        <div>{parse(content.html)}</div>
+        {content && <div>{parse(content.html)}</div>}
       </div>
     </div>
   );
