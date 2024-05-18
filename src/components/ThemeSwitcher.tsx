@@ -1,7 +1,5 @@
 'use client';
 
-'use client';
-
 import * as React from 'react';
 import { Martini, Moon, Sun, Waves } from 'lucide-react';
 import { useTheme } from 'next-themes';
