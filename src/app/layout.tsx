@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div
               className={cn('flex flex-col items-center max-w-lg w-full pt-8 z-10', font.variable)}
             >
-              <Navigation />
+              {/* <Navigation /> */}
               {isShowContents && (
                 <div className="w-full bg-slate-200 dark:bg-gray-800 lime:bg-indigo-400 deepblue:bg-blue-950 flex-1 p-4 fade-in-animation">
                   {children}
