@@ -4,7 +4,7 @@ import { useClient } from '@/hooks/getContents';
 import { SectionTitle } from '../ui/SectionTitle';
 import parse, { Element } from 'html-react-parser';
 import { SNSIcon } from '../ui/SNSIcon';
-import { getSNSIcon } from '@/lib/generateSNS';
+import { getSNSIcon } from '@/lib/getSNSIcon';
 import { useTheme } from 'next-themes';
 import { Suspense, useEffect, useState } from 'react';
 import { Typography } from '@mui/material';

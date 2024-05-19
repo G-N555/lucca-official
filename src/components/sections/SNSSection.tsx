@@ -3,7 +3,7 @@
 import { useTheme } from 'next-themes';
 import Image, { StaticImageData } from 'next/image';
 import { SectionTitle } from '../ui/SectionTitle';
-import { getSNSIcon } from '@/lib/generateSNS';
+import { getSNSIcon } from '@/lib/getSNSIcon';
 
 const snsList = [
   {

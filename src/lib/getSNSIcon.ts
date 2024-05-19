@@ -12,20 +12,22 @@ type SNSIcon = {
   height: number;
 };
 
-type GenerateSNSProps = {
+type getSNSIconProps = {
   theme: string;
   snsName: string;
 };
 
-export const getSNSIcon = ({ theme, snsName }: GenerateSNSProps) => {
+export const getSNSIcon = ({ theme, snsName }: getSNSIconProps) => {
+  console.log('theme', theme);
+  const isDarkSystem = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const snsMap: { [key: string]: SNSIcon } = {
     youtube: {
-      icon: theme === 'dark' ? youtubeDark : youtubeLight,
+      icon: theme === 'dark' || isDarkSystem ? youtubeDark : youtubeLight,
       width: 80,
       height: 40,
     },
     x: {
-      icon: theme === 'dark' ? xDark : xLight,
+      icon: theme === 'dark' || isDarkSystem ? xDark : xLight,
       width: 40,
       height: 40,
     },
