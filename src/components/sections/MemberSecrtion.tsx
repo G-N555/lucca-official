@@ -41,6 +41,7 @@ type MemberFieldProps = {
 
 const MemberField = ({ member }: MemberFieldProps) => {
   const { theme } = useTheme();
+  console.log('theme', theme);
   const { image, name, sns, part, content } = member;
   const imageDom = parse(image.html, {
     replace(domNode) {

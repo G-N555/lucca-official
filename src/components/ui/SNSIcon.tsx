@@ -21,7 +21,9 @@ export const SNSIcon = ({ sns, snsIcon }: SNSIconProps) => {
         href={sns.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-2xl"
+        className={`flex items-center text-2xl w-6 h-6 md:w-8 md:h-8 ${
+          sns.name === 'youtube' ? 'w-14 h-6 md:w-20 md:h-8' : ''
+        }`}
       >
         <Image src={snsIcon.icon} alt={sns.name} width={snsIcon.width} height={snsIcon.height} />
       </a>

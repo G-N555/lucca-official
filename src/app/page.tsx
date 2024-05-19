@@ -8,7 +8,7 @@ import { MemberSection } from '@/components/sections/MemberSecrtion';
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-8 overflow-scroll">
+    <main className="flex flex-col gap-8">
       <DiscoSection />
       <CustomDivider />
       <VideoSection />
