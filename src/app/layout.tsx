@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Image
             src={'/lucca-image.png'}
             alt="Lucca"
-            className="absolute h-auto w-auto opacity-20 top-40 md:top-20 lg:top-0"
+            className="fixed h-auto w-auto opacity-20 top-40 md:top-20 lg:top-0"
             sizes="100vw"
             width={1400}
             height={800}
@@ -49,11 +49,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               )}
             </div>
             <object
-              className="absolute opacity-40 z-0 w-screen h-80h"
+              className="fixed opacity-40 z-0 w-screen h-80h"
               type="image/svg+xml"
               data="/lucca.svg"
             />
-            <div className="absolute top-4 right-3 md:right-5 z-10">
+            <div className="fixed top-4 right-3 md:right-5 z-10">
               <ThemeSwitcher />
             </div>
           </ThemeProvider>
