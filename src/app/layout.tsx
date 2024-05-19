@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     setTimeout(() => {
       setIsShowContents(true);
-    }, 1000);
+    }, 3000);
   }, []);
   return (
     <html lang="en">

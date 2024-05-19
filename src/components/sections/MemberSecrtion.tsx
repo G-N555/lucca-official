@@ -58,7 +58,7 @@ const MemberField = ({ member }: MemberFieldProps) => {
     },
   });
   return (
-    <div className="flex gap-4 items-center pl-4">
+    <div className="grid grid-cols-2 gap-4 items-start pl-4">
       <div>{imageDom}</div>
       <div className="flex flex-col gap-6">
         <div className="flex flex-col">
