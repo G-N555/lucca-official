@@ -1,37 +1,25 @@
-'use client';
-
-import { useState } from 'react';
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import parse from 'html-react-parser';
+import { DiscoSection } from '@/components/sections/DiscoSection';
+import { VideoSection } from '@/components/sections/VideoSection';
+import { CustomDivider } from '@/components/ui/CustomDivider';
+import { SNSSection } from '@/components/sections/SNSSection';
+import { ScheduleSection } from '@/components/sections/ScheduleSection';
+import { ArchiveSection } from '@/components/sections/ArchiveSection';
+import { MemberSection } from '@/components/sections/MemberSecrtion';
 
 export default function Home() {
-  const [htmlString, setHtmlString] = useState('');
-  const client = new ApolloClient({
-    uri: process.env.NEXT_PUBLIC_HYPGRAPH_URL,
-    cache: new InMemoryCache(),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  client
-    .query({
-      query: gql`
-        query MyQuery {
-          news_all(first: 10) {
-            id
-            publishedAt
-            title
-            content {
-              html
-            }
-          }
-        }
-      `,
-    })
-    .then((result) => {
-      setHtmlString(result.data.news_all[0].content.html);
-    });
-
-  return <main>{parse(htmlString)}</main>;
+  return (
+    <main className="flex flex-col gap-8 overflow-scroll">
+      <DiscoSection />
+      <CustomDivider />
+      <VideoSection />
+      <CustomDivider />
+      <SNSSection />
+      <CustomDivider />
+      <ScheduleSection />
+      <CustomDivider />
+      <ArchiveSection />
+      <CustomDivider />
+      <MemberSection />
+    </main>
+  );
 }
