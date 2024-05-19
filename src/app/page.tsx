@@ -4,7 +4,7 @@ import { CustomDivider } from '@/components/ui/CustomDivider';
 import { SNSSection } from '@/components/sections/SNSSection';
 import { ScheduleSection } from '@/components/sections/ScheduleSection';
 import { ArchiveSection } from '@/components/sections/ArchiveSection';
-import { MemberSection } from '@/components/sections/MemberSecrtion';
+import { MemberSection } from '@/components/sections/MemberSection';
 
 export default function Home() {
   return (
