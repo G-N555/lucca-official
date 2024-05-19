@@ -18,7 +18,6 @@ type getSNSIconProps = {
 };
 
 export const getSNSIcon = ({ theme, snsName }: getSNSIconProps) => {
-  console.log('theme', theme);
   const isDarkSystem = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const snsMap: { [key: string]: SNSIcon } = {
     youtube: {
