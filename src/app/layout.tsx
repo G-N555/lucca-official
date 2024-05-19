@@ -1,15 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { Roboto } from 'next/font/google';
-import './globals.css';
-import { Navigation } from '@/components/Navigation';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { ThemeProvider } from '@/provider/ThemeProvider';
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
-import luccaImage from '@/assets/lucca-image.png';
+
+import './globals.css';
+import { Metadata } from 'next';
 
 const font = Roboto({
   subsets: ['latin'],
@@ -17,9 +16,13 @@ const font = Roboto({
   variable: '--font-roboto',
 });
 
+export const metaData: Metadata = {
+  title: 'Lucca Official',
+  description: 'Lucca Official Website',
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [isShowContents, setIsShowContents] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     setTimeout(() => {
