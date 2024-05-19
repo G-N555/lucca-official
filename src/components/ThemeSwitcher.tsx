@@ -4,13 +4,13 @@ import * as React from 'react';
 import { Martini, Moon, Sun, Waves } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '@/components/ui/Dropdown-menu';
 
 export function ThemeSwitcher() {
   const { setTheme } = useTheme();

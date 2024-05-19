@@ -67,13 +67,13 @@
   }
 
   .lime {
-    --background: 144 100 87.8;
+    --background: 144 100% 87.8%;
     --foreground: 235 29% 35%;
 
-    --card: 144 24% 100%;
+    --card: 144 100% 87.8%;
     --card-foreground: 235 29% 35%;
 
-    --popover: 144 100 87.8;
+    --popover: 144 100% 87.8%;
     --popover-foreground: 235 29% 35%;
 
     --primary: 235 29% 35%;
@@ -85,7 +85,7 @@
     --muted: 215 27.9% 16.9%;
     --muted-foreground: 217.9 10.6% 64.9%;
 
-    --accent: 220 0 100%;
+    --accent: 220 0% 100%;
     --accent-foreground: 235 29% 35%;
 
     --destructive: 0 62.8% 30.6%;
@@ -115,7 +115,7 @@
     --muted: 215 27.9% 16.9%;
     --muted-foreground: 217.9 10.6% 64.9%;
 
-    --accent: 220 0 70%;
+    --accent: 220 0% 70%;
     --accent-foreground: 210 99% 40%;
 
     --destructive: 0 62.8% 30.6%;
