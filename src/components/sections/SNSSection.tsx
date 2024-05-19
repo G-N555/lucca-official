@@ -8,20 +8,20 @@ import { getSNSIcon } from '@/lib/getSNSIcon';
 const snsList = [
   {
     name: 'youtube',
-    url: 'https://www.youtube.com/',
+    url: 'https://www.youtube.com/channel/UCftKOgkaKcwwEXimd1-WQ7Q',
   },
   {
     name: 'instagram',
-    url: 'https://www.instagram.com/',
+    url: 'https://www.instagram.com/lucca__band/',
   },
   {
     name: 'x',
-    url: 'https://www.x.com/',
+    url: 'https://twitter.com/lucca__band',
   },
-  {
-    name: 'facebook',
-    url: 'https://www.facebook.com/',
-  },
+  // {
+  //   name: 'facebook',
+  //   url: 'https://www.facebook.com/',
+  // },
 ];
 
 export const SNSSection = () => {
