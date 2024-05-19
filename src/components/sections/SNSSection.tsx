@@ -1,7 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { SectionTitle } from '../ui/SectionTitle';
 import { getSNSIcon } from '@/lib/getSNSIcon';
 

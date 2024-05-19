@@ -33,13 +33,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Image
             src={'/lucca-image.png'}
             alt="Lucca"
-            fill
-            className="absolute w-screen h-screen opacity-20"
+            className="absolute h-auto w-auto opacity-20 top-40 md:top-20 lg:top-0"
+            sizes="100vw"
+            width={1400}
+            height={800}
+            style={{ width: '100%', height: 'auto' }}
           />
           <ThemeProvider attribute="class" defaultTheme="system">
-            <div
-              className={cn('flex flex-col items-center max-w-lg w-full pt-8 z-10', font.variable)}
-            >
+            <div className={cn('flex flex-col items-center max-w-lg w-full z-10', font.variable)}>
               {/* <Navigation /> */}
               {isShowContents && (
                 <div className="w-full bg-slate-200 dark:bg-gray-800 lime:bg-indigo-400 deepblue:bg-blue-950 flex-1 p-4 fade-in-animation">
@@ -52,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               type="image/svg+xml"
               data="/lucca.svg"
             />
-            <div className="absolute top-4 right-10">
+            <div className="absolute top-4 right-3 md:right-5 z-10">
               <ThemeSwitcher />
             </div>
           </ThemeProvider>
