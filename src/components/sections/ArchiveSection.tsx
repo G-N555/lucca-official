@@ -28,7 +28,7 @@ export const ArchiveSection = async () => {
   const { getContents } = useClient();
 
   const { data }: ResponseData = await getContents(`
-    query MyQuery {
+    query Archives {
       archives(first: 10) {
         id
         publishedAt
