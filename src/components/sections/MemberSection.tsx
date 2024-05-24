@@ -85,7 +85,8 @@ export const MemberSection = () => {
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const { data }: ResponseData = await getContents(`
+      const { data }: ResponseData = await getContents(
+        `
         query Members {
           members(first: 10) {
             id
@@ -101,7 +102,9 @@ export const MemberSection = () => {
             part
           }
         }
-      `);
+      `,
+        { Member: { keyFields: ['id'] } }
+      );
       setMembers(data.members);
     };
     fetchMembers();

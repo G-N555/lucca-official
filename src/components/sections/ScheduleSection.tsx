@@ -32,7 +32,8 @@ const ScheduleField = ({ schedule, isNoSchedule }: ScheduleFieldProps) => {
 export const ScheduleSection = async () => {
   const { getContents } = useClient();
 
-  const { data }: ResponseData = await getContents(`
+  const { data }: ResponseData = await getContents(
+    `
     query Schedules {
       schedules(first: 10) {
         id
@@ -41,7 +42,9 @@ export const ScheduleSection = async () => {
         place
       }
     }
-  `);
+  `,
+    { Schedule: { keyFields: ['id'] } }
+  );
 
   const { schedules } = data;
 

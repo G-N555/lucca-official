@@ -30,7 +30,8 @@ const VideoField = (video: video) => {
 export const VideoSection = async () => {
   const { getContents } = useClient();
 
-  const { data }: ResponseData = await getContents(`
+  const { data }: ResponseData = await getContents(
+    `
       query Videos {
         videos(first: 10) {
           id
@@ -40,7 +41,9 @@ export const VideoSection = async () => {
           }
         }
       }
-  `);
+  `,
+    { Video: { keyFields: ['id'] } }
+  );
 
   const { videos } = data;
 

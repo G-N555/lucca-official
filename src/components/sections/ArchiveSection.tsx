@@ -27,7 +27,8 @@ const ArchiveField = (archive: archive) => {
 export const ArchiveSection = async () => {
   const { getContents } = useClient();
 
-  const { data }: ResponseData = await getContents(`
+  const { data }: ResponseData = await getContents(
+    `
     query Archives {
       archives(first: 10) {
         id
@@ -36,7 +37,9 @@ export const ArchiveSection = async () => {
         place
       }
     }
-  `);
+  `,
+    { Archive: { keyFields: ['id'] } }
+  );
 
   const { archives } = data;
 

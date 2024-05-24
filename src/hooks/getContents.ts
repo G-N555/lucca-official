@@ -1,10 +1,12 @@
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, TypePolicies, gql } from '@apollo/client';
 
 export const useClient = () => {
-  const getContents = (query: string) => {
+  const getContents = (query: string, typePolicies: TypePolicies) => {
     const client = new ApolloClient({
       uri: process.env.NEXT_PUBLIC_HYPGRAPH_URL,
-      cache: new InMemoryCache(),
+      cache: new InMemoryCache({
+        typePolicies,
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
