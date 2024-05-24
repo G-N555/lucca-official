@@ -12,6 +12,7 @@ export const useClient = () => {
 
     return client.query({
       query: gql(query),
+      fetchPolicy: 'network-only',
     });
   };
 
