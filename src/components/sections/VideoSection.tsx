@@ -31,7 +31,7 @@ export const VideoSection = async () => {
   const { getContents } = useClient();
 
   const { data }: ResponseData = await getContents(`
-      query MyQuery {
+      query Videos {
         videos(first: 10) {
           id
           title

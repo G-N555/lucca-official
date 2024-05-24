@@ -41,7 +41,6 @@ type MemberFieldProps = {
 
 const MemberField = ({ member }: MemberFieldProps) => {
   const { theme } = useTheme();
-  console.log('theme', theme);
   const { image, name, sns, part, content } = member;
   const imageDom = parse(image.html, {
     replace(domNode) {
@@ -87,7 +86,7 @@ export const MemberSection = () => {
   useEffect(() => {
     const fetchMembers = async () => {
       const { data }: ResponseData = await getContents(`
-        query MyQuery {
+        query Members {
           members(first: 10) {
             id
             publishedAt

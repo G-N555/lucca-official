@@ -31,7 +31,7 @@ export const DiscoSection = async () => {
   const { getContents } = useClient();
 
   const { data }: ResponseData = await getContents(`
-    query MyQuery {
+    query DiscoGraphy {
       discographies(first: 10) {
         id
         publishedAt

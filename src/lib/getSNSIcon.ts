@@ -19,7 +19,6 @@ type getSNSIconProps = {
 
 export const getSNSIcon = ({ theme, snsName }: getSNSIconProps) => {
   const isDarkSystem = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  console.log('isDarkSystem', isDarkSystem);
   const snsMap: { [key: string]: SNSIcon } = {
     youtube: {
       icon: theme === 'dark' || (theme === 'system' && isDarkSystem) ? youtubeDark : youtubeLight,
