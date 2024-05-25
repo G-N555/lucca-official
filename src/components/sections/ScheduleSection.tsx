@@ -32,16 +32,18 @@ const ScheduleField = ({ schedule, isNoSchedule }: ScheduleFieldProps) => {
 export const ScheduleSection = async () => {
   const { getContents } = useClient();
 
-  const { data }: ResponseData = await getContents(`
-    query Schedules {
-      schedules(first: 10) {
-        id
-        publishedAt
-        date
-        place
+  const { data }: ResponseData = await getContents(
+    `
+      query Schedules {
+        schedules(first: 10) {
+          id
+          publishedAt
+          date
+          place
+        }
       }
-    }
-  `);
+    `
+  );
 
   const { schedules } = data;
 

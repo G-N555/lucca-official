@@ -30,18 +30,20 @@ const DiscoGraphyField = (discography: DiscoGraphy) => {
 export const DiscoSection = async () => {
   const { getContents } = useClient();
 
-  const { data }: ResponseData = await getContents(`
-    query DiscoGraphy {
-      discographies(first: 10) {
-        id
-        publishedAt
-        title
-        imageHtml{
-          html
+  const { data }: ResponseData = await getContents(
+    `
+      query DiscoGraphy {
+        discographies(first: 10) {
+          id
+          publishedAt
+          title
+          imageHtml{
+            html
+          }
         }
       }
-    }
-  `);
+    `
+  );
 
   const { discographies } = data;
 

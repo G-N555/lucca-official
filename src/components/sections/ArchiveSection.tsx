@@ -26,17 +26,18 @@ const ArchiveField = (archive: archive) => {
 
 export const ArchiveSection = async () => {
   const { getContents } = useClient();
-
-  const { data }: ResponseData = await getContents(`
-    query Archives {
-      archives(first: 10) {
-        id
-        publishedAt
-        date
-        place
+  const { data }: ResponseData = await getContents(
+    `
+      query Archives {
+        archives(first: 10) {
+          id
+          publishedAt
+          date
+          place
+        }
       }
-    }
-  `);
+    `
+  );
 
   const { archives } = data;
 

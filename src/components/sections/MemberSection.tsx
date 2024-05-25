@@ -1,14 +1,9 @@
-'use client';
-
 import { useClient } from '@/hooks/getContents';
 import { SectionTitle } from '../ui/SectionTitle';
 import parse, { Element } from 'html-react-parser';
-import { SNSIcon } from '../ui/SNSIcon';
-import { getSNSIcon } from '@/lib/getSNSIcon';
-import { useTheme } from 'next-themes';
-import { Suspense, useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import Image from 'next/image';
+import { SNSIconGroup } from '../ui/SNSIconGroup';
 
 type SNS = {
   name: string;
@@ -40,7 +35,6 @@ type MemberFieldProps = {
 };
 
 const MemberField = ({ member }: MemberFieldProps) => {
-  const { theme } = useTheme();
   const { image, name, sns, part, content } = member;
   const imageDom = parse(image.html, {
     replace(domNode) {
@@ -65,56 +59,43 @@ const MemberField = ({ member }: MemberFieldProps) => {
           <Typography variant="h5">{name}</Typography>
           <Typography variant="body1">{part}</Typography>
         </div>
-        {theme && (
-          <div className="flex gap-4 items-center">
-            {sns.map((snsItem) => {
-              const snsIcon = getSNSIcon({ theme, snsName: snsItem.name });
-              return <SNSIcon key={snsItem.name} sns={snsItem} snsIcon={snsIcon} />;
-            })}
-          </div>
-        )}
+        {<SNSIconGroup sns={sns} />}
         {content && <div>{parse(content.html)}</div>}
       </div>
     </div>
   );
 };
 
-export const MemberSection = () => {
+export const MemberSection = async () => {
   const { getContents } = useClient();
-  const [members, setMembers] = useState<Member[]>([]);
-
-  useEffect(() => {
-    const fetchMembers = async () => {
-      const { data }: ResponseData = await getContents(`
-        query Members {
-          members(first: 10) {
-            id
-            publishedAt
-            name
-            image{
-              html
-            }
-            content{
-              html
-            }
-            sns    
-            part
+  const { data }: ResponseData = await getContents(
+    `
+      query Members {
+        members(first: 10) {
+          id
+          publishedAt
+          name
+          image{
+            html
           }
+          content{
+            html
+          }
+          sns    
+          part
         }
-      `);
-      setMembers(data.members);
-    };
-    fetchMembers();
-  }, []);
+      }
+    `
+  );
+
+  const { members } = data;
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className="flex justify-center flex-col px-4 gap-4">
-        <SectionTitle title="Members" />
-        {members.map((member) => (
-          <MemberField key={member.id} member={member} />
-        ))}
-      </div>
-    </Suspense>
+    <div className="flex justify-center flex-col px-4 gap-4">
+      <SectionTitle title="Members" />
+      {members.map((member) => (
+        <MemberField key={member.id} member={member} />
+      ))}
+    </div>
   );
 };

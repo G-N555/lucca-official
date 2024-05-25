@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "3.9.11",
+    "@apollo/experimental-nextjs-app-support": "0.10.1",
     "@apollo/server": "4.10.2",
     "@as-integrations/next": "3.0.0",
     "@emotion/cache": "11.11.0",

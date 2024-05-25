@@ -1,44 +1,43 @@
-'use client';
-
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
+import { useClient } from '@/hooks/getContents';
 import { SectionTitle } from '../ui/SectionTitle';
-import { getSNSIcon } from '@/lib/getSNSIcon';
-import { SNSIcon } from '../ui/SNSIcon';
+import { SNSIconGroup } from '../ui/SNSIconGroup';
 
-const snsList = [
-  {
-    name: 'youtube',
-    url: 'https://www.youtube.com/channel/UCftKOgkaKcwwEXimd1-WQ7Q',
-  },
-  {
-    name: 'instagram',
-    url: 'https://www.instagram.com/lucca__band/',
-  },
-  {
-    name: 'x',
-    url: 'https://twitter.com/lucca__band',
-  },
-  // {
-  //   name: 'facebook',
-  //   url: 'https://www.facebook.com/',
-  // },
-];
+type SNS = {
+  id: string;
+  publishedAt: string;
+  snsList: {
+    name: string;
+    url: string;
+  }[];
+};
 
-export const SNSSection = () => {
-  const { theme } = useTheme();
+type ResponseData = {
+  data: {
+    snsContents: SNS[];
+  };
+};
+
+export const SNSSection = async () => {
+  const { getContents } = useClient();
+
+  const { data }: ResponseData = await getContents(
+    `
+      query SNS {
+        snsContents(first: 10) {
+          id
+          publishedAt
+          snsList
+        }
+      }
+    `
+  );
+
+  const { snsContents } = data;
 
   return (
     <div className="flex flex-col gap-4 px-4">
       <SectionTitle title="Official SNS" />
-      {theme && (
-        <div className="flex gap-10 items-center justify-around">
-          {snsList.map((sns) => {
-            const snsIcon = getSNSIcon({ theme, snsName: sns.name });
-            return <SNSIcon key={sns.name} sns={sns} snsIcon={snsIcon} />;
-          })}
-        </div>
-      )}
+      <SNSIconGroup sns={snsContents[0].snsList} classNames="gap-10 justify-around" />
     </div>
   );
 };
