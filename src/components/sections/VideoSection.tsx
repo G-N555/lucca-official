@@ -41,8 +41,7 @@ export const VideoSection = async () => {
           }
         }
       }
-  `,
-    { Video: { keyFields: ['id'] } }
+    `
   );
 
   const { videos } = data;

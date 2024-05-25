@@ -34,16 +34,15 @@ export const ScheduleSection = async () => {
 
   const { data }: ResponseData = await getContents(
     `
-    query Schedules {
-      schedules(first: 10) {
-        id
-        publishedAt
-        date
-        place
+      query Schedules {
+        schedules(first: 10) {
+          id
+          publishedAt
+          date
+          place
+        }
       }
-    }
-  `,
-    { Schedule: { keyFields: ['id'] } }
+    `
   );
 
   const { schedules } = data;

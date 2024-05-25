@@ -32,18 +32,17 @@ export const DiscoSection = async () => {
 
   const { data }: ResponseData = await getContents(
     `
-    query DiscoGraphy {
-      discographies(first: 10) {
-        id
-        publishedAt
-        title
-        imageHtml{
-          html
+      query DiscoGraphy {
+        discographies(first: 10) {
+          id
+          publishedAt
+          title
+          imageHtml{
+            html
+          }
         }
       }
-    }
-  `,
-    { DiscoGraphy: { keyFields: ['id'] } }
+    `
   );
 
   const { discographies } = data;
