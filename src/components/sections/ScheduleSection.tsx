@@ -22,8 +22,8 @@ type ScheduleFieldProps = {
 
 const ScheduleField = ({ schedule, isNoSchedule }: ScheduleFieldProps) => {
   return (
-    <div className={`flex flex-col gap-4 items-center ${!isNoSchedule ? 'pl-4' : ''}`}>
-      {schedule.date && <div>{format(schedule.date, 'dd/MMM/yyyy')}</div>}
+    <div className="flex gap-4 items-center">
+      {schedule.date && <div>{format(schedule.date, 'dd.MMM.yyyy')}</div>}
       <div>{schedule.place}</div>
     </div>
   );
@@ -52,9 +52,19 @@ export const ScheduleSection = async () => {
   return (
     <div className="flex justify-center flex-col px-4 gap-4">
       <SectionTitle title="Live Schedule" />
-      {schedules.map((schedule) => (
-        <ScheduleField key={schedule.id} schedule={schedule} isNoSchedule={isNoSchedule} />
-      ))}
+      <div
+        className={`flex gap-4 items-center pl-4 ${
+          isNoSchedule ? 'justify-center' : 'justify-start'
+        }`}
+      >
+        {isNoSchedule ? (
+          <div>Coming soon ...</div>
+        ) : (
+          schedules.map((schedule) => (
+            <ScheduleField key={schedule.id} schedule={schedule} isNoSchedule={isNoSchedule} />
+          ))
+        )}
+      </div>
     </div>
   );
 };
