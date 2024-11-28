@@ -10,7 +10,7 @@ import { NewsSection } from '@/components/sections/NewsSection';
 export default function Home() {
   return (
     <main className="flex flex-col gap-8">
-      {/* <NewsSection /> */}
+      <NewsSection />
       <DiscoSection />
       <CustomDivider />
       <VideoSection />
