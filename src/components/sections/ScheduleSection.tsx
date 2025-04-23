@@ -53,7 +53,7 @@ export const ScheduleSection = async () => {
     <div className="flex justify-center flex-col px-4 gap-4">
       <SectionTitle title="Live Schedule" />
       <div
-        className={`flex gap-4 items-center pl-4 ${
+        className={`flex flex-col gap-4 items-center pl-4 ${
           isNoSchedule ? 'justify-center' : 'justify-start'
         }`}
       >
