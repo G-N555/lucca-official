@@ -1,6 +1,7 @@
 import { useClient } from '@/hooks/getContents';
 import { SectionTitle } from '../ui/SectionTitle';
-import { format } from 'date-fns';
+import { formatInTimeZone } from 'date-fns-tz';
+import { getTime } from 'date-fns';
 
 type Schedule = {
   id: string;
@@ -21,9 +22,12 @@ type ScheduleFieldProps = {
 };
 
 const ScheduleField = ({ schedule, isNoSchedule }: ScheduleFieldProps) => {
+  const parsedISOTime = schedule.date?.match(/T(.+)$/)?.[1];
+  const dateFormat =
+    parsedISOTime && parsedISOTime === '00:00:00+00:00' ? 'dd.MMM.yyyy 未明' : 'yyyy-MM-dd kk:mm〜';
   return (
     <div className="flex gap-4 items-center">
-      {schedule.date && <div>{format(schedule.date, 'dd.MMM.yyyy')}</div>}
+      {schedule.date && <div>{formatInTimeZone(schedule.date, 'JST', dateFormat)}</div>}
       <div>{schedule.place}</div>
     </div>
   );
@@ -48,6 +52,8 @@ export const ScheduleSection = async () => {
   const { schedules } = data;
 
   const isNoSchedule = schedules.every((schedule) => !schedule.date);
+
+  console.log('schedules', schedules);
 
   return (
     <div className="flex justify-center flex-col px-4 gap-4">
