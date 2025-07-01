@@ -19,7 +19,9 @@ export const ContentsWrapper = ({ children }: { children: React.ReactNode }) => 
   const [gaId, setGaId] = useState('G-98E40959T2');
 
   useEffect(() => {
+    console.log('theme changed to', theme);
     if (theme !== 'light') {
+      console.log('switching ga');
       setGaId('G-53ZX27CSWH');
     }
   }, [theme]);
