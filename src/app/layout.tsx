@@ -3,6 +3,7 @@ import { ThemeProvider } from '@/provider/ThemeProvider';
 import { Metadata } from 'next';
 import { ContentsWrapper } from '@/components/ContentsWrapper';
 import './globals.css';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: 'Lucca Official',
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <GoogleAnalytics gaId="G-98E40959T2" />
       <body>
         <div className="w-screen h-screen flex justify-center relative overflow-x-hidden">
           <Image
