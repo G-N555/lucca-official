@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { cn } from '@/lib/utils';
 import { Roboto } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const font = Roboto({
   subsets: ['latin'],
@@ -14,6 +15,15 @@ const font = Roboto({
 export const ContentsWrapper = ({ children }: { children: React.ReactNode }) => {
   const [isShowContents, setIsShowContents] = useState(false);
 
+  const [theme, setTheme] = useState('light');
+  const [gaId, setGaId] = useState('G-98E40959T2');
+
+  useEffect(() => {
+    if (theme !== 'light') {
+      setGaId('G-53ZX27CSWH');
+    }
+  }, [theme]);
+
   useEffect(() => {
     setTimeout(() => {
       setIsShowContents(true);
@@ -21,6 +31,7 @@ export const ContentsWrapper = ({ children }: { children: React.ReactNode }) => 
   }, []);
   return (
     <>
+      <GoogleAnalytics gaId={gaId} />
       <div className={cn('flex flex-col items-center max-w-lg w-full z-10', font.variable)}>
         {/* <Navigation /> */}
         {isShowContents && (
@@ -35,7 +46,7 @@ export const ContentsWrapper = ({ children }: { children: React.ReactNode }) => 
         data="/lucca.svg"
       />
       <div className="fixed top-4 right-3 md:right-5 z-10">
-        <ThemeSwitcher />
+        <ThemeSwitcher setTheme={setTheme} />
       </div>
     </>
   );
