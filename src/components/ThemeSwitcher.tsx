@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/Dropdown-menu';
 
-export function ThemeSwitcher() {
+export function ThemeSwitcher({ setTheme: onTheme }: { setTheme: (theme: string) => void }) {
   const { setTheme } = useTheme();
 
   return (
@@ -27,11 +27,46 @@ export function ThemeSwitcher() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('lime')}>Lime</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('deepblue')}>Deep blue</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            setTheme('light');
+            onTheme('light');
+          }}
+        >
+          Light
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            setTheme('dark');
+            onTheme('dark');
+          }}
+        >
+          Dark
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            setTheme('lime');
+            onTheme('lime');
+          }}
+        >
+          Lime
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            setTheme('deepblue');
+            onTheme('deepblue');
+          }}
+        >
+          Deep blue
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            setTheme('system');
+            onTheme('system');
+          }}
+        >
+          System
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
